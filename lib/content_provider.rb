@@ -11,7 +11,7 @@ begin
   time_tables = service.get_time_tables
 
   output='<table class="busTable">'
-  output +='<tr><th>Bussi</th><th>Päättäri</th><th>Ajat (min)</th></tr>'
+  output +='<tr><th>Bussi</th><th>Suunta</th><th>Ajat (min)</th></tr>'
   
   time_tables.each do |bus, times|
     output += '<tr>'
