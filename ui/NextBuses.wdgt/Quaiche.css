@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.busTable { 
+   color: white; 
+   font: 14px "Lucida Grande";
+   font-weight: bold;
+}
+
+.theBeef {
+    font: 14px "Lucida Grande";
+    font-weight: bold;
+    color: black;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}

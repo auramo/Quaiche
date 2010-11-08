@@ -1,0 +1,2 @@
+require 'test/unit'
+require 'bus_stop_data_parser_test'

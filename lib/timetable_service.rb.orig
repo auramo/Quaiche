@@ -1,0 +1,25 @@
+
+class TimetableService
+  def initialize(sources, config)
+    @sources = sources
+    @next_time_extractor = NextTimeExtractor.new(config)
+  end
+  def getTimeTables
+    for source in @sources
+      raw_data = @source.get_raw_times
+      timeTables = create_timetables(raw_data)
+      
+    end
+    []
+  end
+
+  def create_timetables(raw_data)
+    timetables = []
+    raw_data.each do |raw_chunk|
+      parsed = @parser.parse(raw_chunk)
+      timetables << @next_time_extractor.extract(parsed)
+    end
+    timetables
+  end
+  
+end
