@@ -3,11 +3,11 @@ require 'global_settings'
 class Logger
 
   def self.info(msg)
-    write_to_file("*INFO* " + msg)
+    write_to_file("*INFO* " + Time.now.to_s + " " + msg)
   end
 
   def self.error(msg)
-    write_to_file("*ERROR* " + msg)
+    write_to_file("*ERROR* " + Time.now.to_s + " " + msg)
   end
 
   def self.write_to_file(msg)
