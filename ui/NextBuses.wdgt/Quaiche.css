@@ -8,6 +8,11 @@ body {
    font-weight: bold;
 }
 
+.busTable th { 
+   text-align:left; 
+   font-style:italic; 
+}
+
 .theBeef {
     font: 14px "Lucida Grande";
     font-weight: bold;
