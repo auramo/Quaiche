@@ -6,21 +6,23 @@ $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'timetable_service_initializer'
 require 'logger'
 
+def times_str(next_bus_times)
+  
+end
+
 begin
   service = TimetableServiceInitializer.init_service
   time_tables = service.get_time_tables
 
   output='<table class="busTable">'
-  output +='<tr><th>Bussi</th><th>Suunta</th><th>Ajat (min)</th></tr>'
+  output +='<tr><th>Bussi</th><th>Suunta</th><th>Min (klo)</th></tr>'
   
-  time_tables.each do |bus, times|
+  time_tables.each do |bus, next_bus_times|
     output += '<tr>'
     output += '<td>' + bus.name + '</td>'
     output += '<td>' + bus.last_stop[0..5] + '</td>'
     output += '<td>'
-    times.each do |time|
-      output += " " + time.to_s
-    end
+    output += next_bus_times.join(", ")
     output += '</td>'
     output += '</tr>'
   end

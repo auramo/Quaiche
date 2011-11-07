@@ -1,3 +1,5 @@
+require 'bus_data'
+
 class NextTimeExtractor
 
   def initialize(amount, buses, time_class=Time)
@@ -16,8 +18,8 @@ class NextTimeExtractor
       times.each do |next_bus_time|
         next_bus_time_minutes = bus_time_to_minutes(curr_time, next_bus_time)
         next if next_bus_time_minutes < curr_minutes
-        next_bus_times << next_bus_time_minutes - curr_minutes
-        break if next_bus_times.length == 2
+        next_bus_times << NextBusTimes.new(next_bus_time_minutes - curr_minutes, next_bus_time)
+        break if next_bus_times.length == @amount
       end
       next_times[bus] = next_bus_times
     end

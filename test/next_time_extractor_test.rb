@@ -28,13 +28,15 @@ class NextTimeExtractorTest < Test::Unit::TestCase
     
     for_72 = extracted[Bus_72]
     assert_equal(2, for_72.length)
-    assert_equal(1, for_72[0])
-    assert_equal(315, for_72[1])
+    assert_equal(1, for_72[0].minutes_until)
+    assert_equal(10, for_72[0].time.hour)
+    assert_equal(01, for_72[0].time.min)    
+    assert_equal(315, for_72[1].minutes_until)
 
     for_73n = extracted[Bus_73N]
     assert_equal(2, for_73n.length)
-    assert_equal(15, for_73n[0])
-    assert_equal(120, for_73n[1])
+    assert_equal(15, for_73n[0].minutes_until)
+    assert_equal(120, for_73n[1].minutes_until)
   end
 
   def test_over_midnight_case
@@ -43,7 +45,7 @@ class NextTimeExtractorTest < Test::Unit::TestCase
     FakeTime.set_min(00)
     extracted = @extractor.extract(data)
     assert_equal(1, extracted.length)
-    mins = extracted[Bus_72][0]
+    mins = extracted[Bus_72][0].minutes_until
     assert_equal(132, mins)
   end
   
