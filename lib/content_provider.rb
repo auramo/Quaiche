@@ -24,7 +24,7 @@ begin
   end
 
   output += '</table>'
-  
+  output += '<p><i>Ruby: #{RUBY_VERSION}</i></p>'
   puts output
 
 
