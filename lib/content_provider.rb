@@ -6,10 +6,6 @@ $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'timetable_service_initializer'
 require 'logger'
 
-def times_str(next_bus_times)
-  
-end
-
 begin
   service = TimetableServiceInitializer.init_service
   time_tables = service.get_time_tables
