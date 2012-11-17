@@ -12,7 +12,6 @@ class TimetableServiceInitializer
   def self.init_service
     FileUtils.mkdir_p AppFilesPath
     config = Config.get_config
-    config = QConfig.get_config
     amount = get_config_arg("bus_amount", config)
     user = get_config_arg("user", config)
     pass = get_config_arg("pass", config)

@@ -7,7 +7,7 @@ DefaultConfig = {
   "user" => "schmuser",
   "pass" => "hslbusstop"}
 
-class QConfig
+class Config
   def self.get_config
     config_data = nil
     begin
