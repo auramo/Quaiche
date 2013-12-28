@@ -7,7 +7,7 @@ class FileBusStopSource
     @bus_stop = bus_stop
     @cache_filename = AppFilesPath + @bus_stop + ".cache"
     @next_time_extractor = next_time_extractor
-    @parser = BusStopDataParser.new
+    @parser = BusStopDataJsonParser.new
   end
   
   def get_times
