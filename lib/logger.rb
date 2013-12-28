@@ -1,4 +1,5 @@
 require 'global_settings'
+require 'fileutils'
 
 class Logger
 
@@ -10,7 +11,12 @@ class Logger
     write_to_file("*ERROR* " + Time.now.to_s + " " + msg)
   end
 
+  def self.maybe_create_dir
+    FileUtils.mkdir_p(AppFilesPath) unless File.exists?(AppFilesPath)
+  end
+
   def self.write_to_file(msg)
+    maybe_create_dir
     File.open(LogFile, "a") do |log|
       log.puts(msg)
     end

@@ -6,7 +6,7 @@ class BusStopDataParser
   def parse(data)
     first = true
     parsed = {}
-    data.each do |row|
+    data.each_line do |row|
       unless first
         cols = row.split("|")
         busId = cols[1].strip
