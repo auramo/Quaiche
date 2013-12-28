@@ -187,8 +187,8 @@ class TestBusStopDataJsonParser < Test::Unit::TestCase
     assert_equal(26, time.min)
   end
   
-  def xtest_empty
-    assert_equal(0, @parser.parse("").length)
+  def test_empty
+    assert_equal(0, @parser.parse("[]").length)
   end
 
   

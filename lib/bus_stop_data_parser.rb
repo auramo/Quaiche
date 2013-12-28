@@ -60,7 +60,8 @@ class BusStopDataJsonParser
   require "json"
   def parse(data)
     parsed = JSON.parse(data)
-    raise Exception.new("Should contain data for only one bus stop! #{data}") if parsed.length != 1
+    raise Exception.new("Should contain data for only one bus stop! #{data}") if parsed.length > 1
+    return {} if parsed.length == 0
     stop_info = parsed[0]
     line_directions = parse_directions(stop_info)
     departures = parse_departures(stop_info)
