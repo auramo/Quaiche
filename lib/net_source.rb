@@ -8,14 +8,15 @@ class NetBusStopSource
   def initialize(bus_stop, next_time_extractor, user, pass)
     @bus_stop = bus_stop
     @next_time_extractor = next_time_extractor
-    @parser = BusStopDataParser.new
+    @parser = BusStopDataJsonParser.new
     @user = user
     @pass = pass
   end
 
   def get_times
-    params = {:stop => @bus_stop, :user => @user, :pass => @pass}
-    Logger.info("Getting data for #{@bus_stop} from #{ServiceAddress}#{ServicePath} with user #{@user}")
+    #params = {:stop => @bus_stop, :user => @user, :pass => @pass}
+    params = {:request => "stop", :format => "json", :code => @bus_stop, :user => @user, :pass => @pass}
+    Logger.info("Getting data for #{@bus_stop} from #{ServiceAddress}#{ServicePath} with user #{@user} and params #{params}")
     raw = http_get(ServiceAddress, ServicePath, params)
     Logger.info("Got raw data #{raw}")
     parsed = @parser.parse(raw)

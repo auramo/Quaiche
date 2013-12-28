@@ -3,11 +3,11 @@ require 'yaml'
 
 DefaultConfig = {
   "bus_amount" => 2,
-  "bus_stops" => {"1223" => ["70T", "14", "14B"], "2041" => ["64", "66"]},
+  "bus_stops" => {"3331" => ["73N", "72"], "3363" => ["72"]},
   "user" => "schmuser",
   "pass" => "hslbusstop"}
 
-class Config
+class QConfig
   def self.get_config
     config_data = nil
     begin
