@@ -6,6 +6,8 @@ There is an installation script called install.sh at the root directory. It copi
 
 Note that the widget has a hard-coded path to the Ruby script /usr/local/quaiche/content_provider.rb so you must install the Ruby scripts into that directory unless you also edit the path (which is in Quaiche.js).
 
+Note: you need to install the JSON gem, at least in older Ruby versions (like 1.8.x).
+
 Default configuration
 ---------------------
 
