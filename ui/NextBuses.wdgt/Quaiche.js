@@ -6,11 +6,16 @@ if (window.widget) {
 }
 
 function done(cmd) {
-  document.getElementById("data").innerHTML = cmd.outputString;
+    if (cmd.outputString) {
+	document.getElementById("data").innerHTML = cmd.outputString;
+    } else {
+	document.getElementById("data").innerHTML = '<span style="color: white;font-size: 8px">' + cmd.errorString + "</span>";	
+    }
 }
 
 function getTimeTables() {
-  widget.system("/usr/local/quaiche/content_provider.rb", done);
+  widget.system("/usr/local/quaiche/run_content_provider.sh", done);
+
   if (runBgUpdate) {
     setTimeout("getTimeTables()", 10000);
   }
