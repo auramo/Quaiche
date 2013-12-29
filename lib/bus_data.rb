@@ -14,7 +14,15 @@ class NextBusTimes
     @time = time
   end
   def to_s
-     @minutes_until.to_s + "(" + @time.hour.to_s + ":" + @time.min.to_s + ")"
+     @minutes_until.to_s + "(" + format_time_digit(@time.hour) + ":" + format_time_digit(@time.min) + ")"
+  end
+  def format_time_digit(digit)
+    d_str = digit.to_s
+    if d_str.length == 1
+      return "0" + d_str
+    else
+      return d_str
+    end
   end
 end
 
