@@ -1,7 +1,8 @@
 require 'bus_data'
+require 'rubygems'
+require 'json'
 
 class BusStopDataJsonParser
-  require "json"
   def parse(data)
     parsed = JSON.parse(data)
     raise Exception.new("Should contain data for only one bus stop! #{data}") if parsed.length > 1
