@@ -1,4 +1,9 @@
 
+Quaiche
+=======
+
+An OSX dashboard widget which provides the next departures of the buses/stops that you're interested in. 
+
 Installation
 ------------
 
@@ -22,9 +27,9 @@ The protocol
 
 The "HTTP GET" API is here:
 
-http://developer.reittiopas.fi/pages/en/http-get-interface.php
+http://developer.reittiopas.fi/pages/en/http-get-interface-version-2.php#lines
 
-Go to "1.9 Stop timetable"
+Go to "1.6 Stop information"
 
 By default it uses the username/password combo:
 
@@ -33,6 +38,5 @@ hslbusstop
 
 You can try these credentials directly like this:
 
-http://api.reittiopas.fi/public-ytv/fi/api/?stop=2222209&user=schmuser&pass=hslbusstop
-
+http://api.reittiopas.fi/hsl/prod/?request=stop&format=json&code=3331&user=schmuser&pass=hslbusstophttp://api.reittiopas.fi/hsl/prod/?request=stop&format=json&code=3331&user=schmuser&pass=hslbusstop
 
