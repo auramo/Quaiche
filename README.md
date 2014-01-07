@@ -4,7 +4,7 @@ Quaiche
 
 An OSX dashboard widget which provides the next departures of the buses/stops that you're interested in. 
 
-<img src="/screenshot.png" align="right" />
+<img src="/screenshot.png"/>
 
 Installation
 ------------
