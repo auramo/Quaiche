@@ -6,6 +6,8 @@ An OSX dashboard widget which provides the next departures of the buses/stops th
 
 <img src="/screenshot.png"/>
 
+Yes, it's this beautiful.
+
 Installation
 ------------
 
