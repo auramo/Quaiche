@@ -5,18 +5,19 @@ require 'json'
 class BusStopDataJsonParser
   def parse(data)
     parsed = JSON.parse(data)
-    raise Exception.new("Should contain data for only one bus stop! #{data}") if parsed.length > 1
     return {} if parsed.length == 0
-    stop_info = parsed[0]
-    line_directions = parse_directions(stop_info)
-    departures = parse_departures(stop_info)
     result = {}
-    departures.each do | departure |
-      bus_id = departure["busId"]
-      time = departure["time"]
-      direction = line_directions[bus_id]
-      bus = BusWithDirection.new(bus_id, direction)
-      add_departure(result, bus, time)
+    parsed.each do | stop_info |
+      line_directions = parse_directions(stop_info)
+      departures = parse_departures(stop_info)
+
+      departures.each do | departure |
+        bus_id = departure["busId"]
+        time = departure["time"]
+        direction = line_directions[bus_id]
+        bus = BusWithDirection.new(bus_id, direction)
+        add_departure(result, bus, time)
+      end
     end
     result
   end
